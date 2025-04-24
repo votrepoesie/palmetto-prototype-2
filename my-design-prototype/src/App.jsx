@@ -6,10 +6,15 @@ import checklistImageMapping from './data/checklistImageMapping'
 function App() {
   const [selectedChecklistItem, setSelectedChecklistItem] = useState(null);
   const [checklistMapping, setChecklistMapping] = useState(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const handleChecklistItemClick = (itemId, mapping) => {
     setSelectedChecklistItem(itemId);
     setChecklistMapping(mapping);
+  };
+
+  const handleSidebarToggle = (isCollapsed) => {
+    setSidebarCollapsed(isCollapsed);
   };
 
   return (
@@ -43,10 +48,13 @@ function App() {
       
       <div className="flex">
         {/* Sidebar Navigation */}
-        <QAChecklist onChecklistItemClick={handleChecklistItemClick} />
+        <QAChecklist 
+          onChecklistItemClick={handleChecklistItemClick} 
+          onToggleCollapse={handleSidebarToggle}
+        />
         
         {/* Main Content */}
-        <main className="flex-1 px-6 py-6">
+        <main className={`flex-1 px-6 py-6 transition-all duration-300 ${sidebarCollapsed ? 'ml-0' : ''}`}>
           <PhotoAlbum 
             selectedChecklistItem={selectedChecklistItem} 
             checklistMapping={checklistMapping} 
