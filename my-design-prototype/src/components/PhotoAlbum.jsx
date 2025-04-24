@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PhotoCluster from './PhotoCluster';
 import ImageModal from './ImageModal';
 import inverterImage1 from '../assets/inverter-type-1.png';
@@ -17,11 +17,12 @@ import pullbackImage3 from '../assets/pullback-3.png';
 import wiringImage1 from '../assets/wiring-1.png';
 import wiringImage2 from '../assets/wiring-2.png';
 
-function PhotoAlbum() {
+function PhotoAlbum({ selectedChecklistItem, checklistMapping }) {
   const [activeCluster, setActiveCluster] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [highlightedImages, setHighlightedImages] = useState([]);
   
-  // Sample data for 5 photo clusters
+  // Sample data for photo clusters
   const clusters = [
     {
       id: 1,
@@ -75,6 +76,17 @@ function PhotoAlbum() {
         'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
         'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
         'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
@@ -109,6 +121,34 @@ function PhotoAlbum() {
     }
   ];
 
+  // Process the selected checklist item and update highlighted images
+  useEffect(() => {
+    if (selectedChecklistItem && checklistMapping) {
+      // Extract cluster and image indexes from the mapping
+      const newHighlightedImages = [];
+      
+      checklistMapping.imageIds.forEach(mapping => {
+        // Auto-open the relevant cluster if not already open
+        if (mapping.clusterId && mapping.imageIndexes.length > 0) {
+          setActiveCluster(mapping.clusterId);
+          
+          // Store highlighted images for this cluster
+          mapping.imageIndexes.forEach(imageIndex => {
+            newHighlightedImages.push({
+              clusterId: mapping.clusterId,
+              imageIndex
+            });
+          });
+        }
+      });
+      
+      setHighlightedImages(newHighlightedImages);
+    } else {
+      // Clear highlights when no item is selected
+      setHighlightedImages([]);
+    }
+  }, [selectedChecklistItem, checklistMapping]);
+
   const handleClusterClick = (clusterId) => {
     if (activeCluster === clusterId) {
       setActiveCluster(null); // Close if already open
@@ -117,10 +157,10 @@ function PhotoAlbum() {
     }
   };
 
-  const handleImageClick = (image, clusterTitle) => {
+  const handleImageClick = (image, clusterTitle, index) => {
     setSelectedImage({
       url: image,
-      title: clusterTitle
+      title: `${clusterTitle} - Image ${index + 1}`
     });
   };
 
@@ -131,10 +171,17 @@ function PhotoAlbum() {
   // Find active cluster object
   const activeClusterObj = clusters.find(c => c.id === activeCluster);
 
+  // Check if an image is highlighted
+  const isImageHighlighted = (clusterId, imageIndex) => {
+    return highlightedImages.some(
+      highlight => highlight.clusterId === clusterId && highlight.imageIndex === imageIndex
+    );
+  };
+
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4 sticky top-0 z-10 py-2 h-[40px]">
-        <h2 className="text-xl font-medium text-gray-800">M1 Checklist Items</h2>
+      <div className="flex items-center justify-between mb-4 sticky top-0 bg-white z-10 py-2">
+        <h2 className="text-xl font-medium text-gray-800">Photos</h2>
         {activeCluster && (
           <button 
             onClick={() => setActiveCluster(null)}
@@ -145,6 +192,14 @@ function PhotoAlbum() {
             </svg>
             Back
           </button>
+        )}
+        
+        {/* Show info about selected checklist item if any */}
+        {selectedChecklistItem && (
+          <div className="ml-4 flex-1 text-sm">
+            <span className="text-blue-700 font-medium">Showing images for: </span>
+            <span>{checklistMapping?.name || selectedChecklistItem}</span>
+          </div>
         )}
       </div>
       
@@ -157,33 +212,68 @@ function PhotoAlbum() {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-            {activeClusterObj.images.map((img, index) => (
-              <div 
-                key={index} 
-                className="overflow-hidden cursor-pointer group relative"
-                onClick={() => handleImageClick(img, `${activeClusterObj.title} - Image ${index + 1}`)}
-              >
-                <div className="aspect-square w-full">
-                  <img 
-                    src={img} 
-                    alt={`${activeClusterObj.title} ${index + 1}`} 
-                    className="w-full h-full object-cover group-hover:brightness-95 transition-all"
-                  />
+            {activeClusterObj.images.map((img, index) => {
+              const isHighlighted = isImageHighlighted(activeCluster, index);
+              
+              return (
+                <div 
+                  key={index} 
+                  className={`overflow-hidden cursor-pointer group relative transition-all duration-200 ${
+                    isHighlighted ? 'ring-4 ring-blue-500 ring-offset-2 z-10 scale-105' : ''
+                  }`}
+                  onClick={() => handleImageClick(img, activeClusterObj.title, index)}
+                >
+                  <div className="aspect-square w-full">
+                    <img 
+                      src={img} 
+                      alt={`${activeClusterObj.title} ${index + 1}`} 
+                      className={`w-full h-full object-cover transition-all ${
+                        isHighlighted 
+                          ? 'brightness-110' 
+                          : selectedChecklistItem ? 'brightness-75 hover:brightness-90' : 'group-hover:brightness-95'
+                      }`}
+                    />
+                  </div>
+                  
+                  {/* Show indicator for highlighted images */}
+                  {isHighlighted && (
+                    <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ) : (
         // Grid view of all clusters - Google Photos style
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {clusters.map(cluster => (
-            <PhotoCluster 
-              key={cluster.id}
-              cluster={cluster}
-              onClick={() => handleClusterClick(cluster.id)}
-            />
-          ))}
+          {clusters.map(cluster => {
+            // Determine if this cluster has highlighted images
+            const hasHighlightedImages = highlightedImages.some(
+              highlight => highlight.clusterId === cluster.id
+            );
+            
+            return (
+              <PhotoCluster 
+                key={cluster.id}
+                cluster={cluster}
+                onClick={() => handleClusterClick(cluster.id)}
+                isHighlighted={hasHighlightedImages}
+                highlightedImageIndexes={
+                  hasHighlightedImages 
+                    ? highlightedImages
+                        .filter(h => h.clusterId === cluster.id)
+                        .map(h => h.imageIndex)
+                    : []
+                }
+                selectedChecklistItem={selectedChecklistItem}
+              />
+            );
+          })}
         </div>
       )}
       

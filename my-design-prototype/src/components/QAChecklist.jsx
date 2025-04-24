@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import checklistImageMapping from '../data/checklistImageMapping';
 
-function QAChecklist() {
+function QAChecklist({ onChecklistItemClick }) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedItem, setSelectedItem] = useState(null);
 
   // Checklist data structure
   const checklistData = [
@@ -44,6 +46,20 @@ function QAChecklist() {
     setActiveCategory(categoryId === activeCategory ? 'all' : categoryId);
   };
 
+  const handleItemClick = (itemId) => {
+    // Toggle selection if clicking the same item
+    const newSelectedItem = selectedItem === itemId ? null : itemId;
+    setSelectedItem(newSelectedItem);
+    
+    // Pass selection to parent with mapping data
+    if (newSelectedItem) {
+      const mappingData = checklistImageMapping[newSelectedItem];
+      onChecklistItemClick(newSelectedItem, mappingData);
+    } else {
+      onChecklistItemClick(null, null);
+    }
+  };
+
   // Calculate summary stats
   const totalItems = checklistData.reduce((sum, category) => sum + category.items.length, 0);
   const foundItems = checklistData.reduce((sum, category) => 
@@ -60,7 +76,11 @@ function QAChecklist() {
         
         {/* All filter option */}
         <button 
-          onClick={() => setActiveCategory('all')}
+          onClick={() => {
+            setActiveCategory('all');
+            setSelectedItem(null);
+            onChecklistItemClick(null, null);
+          }}
           className={`flex items-center w-full px-3 py-2 rounded-md text-left mb-2 ${
             activeCategory === 'all' 
             ? 'bg-blue-50 text-blue-700 font-medium' 
@@ -96,20 +116,38 @@ function QAChecklist() {
               {/* Category Items */}
               <div className={`transition-all duration-200 ${activeCategory === category.id || activeCategory === 'all' ? 'max-h-96 overflow-y-auto' : 'max-h-0 overflow-hidden'}`}>
                 <ul className="px-2 py-1">
-                  {category.items.map(item => (
-                    <li key={item.id} className="py-1.5 px-3 hover:bg-gray-50 rounded-md my-1">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">{item.name}</span>
-                        <span className={`text-xs px-2 py-1 rounded-full ${
-                          item.status === 'found' 
-                            ? 'bg-green-100 text-green-800' 
-                            : 'bg-red-100 text-red-800'
-                        }`}>
-                          {item.status === 'found' ? 'Found' : 'Missing'}
-                        </span>
-                      </div>
-                    </li>
-                  ))}
+                  {category.items.map(item => {
+                    const hasImages = checklistImageMapping[item.id]?.imageIds.length > 0;
+                    const isSelected = selectedItem === item.id;
+                    
+                    return (
+                      <li 
+                        key={item.id} 
+                        className={`py-1.5 px-3 rounded-md my-1 transition-colors cursor-pointer ${
+                          isSelected 
+                            ? 'bg-blue-50 hover:bg-blue-100' 
+                            : 'hover:bg-gray-50'
+                        }`}
+                        onClick={() => handleItemClick(item.id)}
+                      >
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center">
+                            <span className="text-sm">{item.name}</span>
+                            {hasImages && (
+                              <span className="ml-2 w-2 h-2 rounded-full bg-blue-500" title="Has images"></span>
+                            )}
+                          </div>
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            item.status === 'found' 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {item.status === 'found' ? 'Found' : 'Missing'}
+                          </span>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>

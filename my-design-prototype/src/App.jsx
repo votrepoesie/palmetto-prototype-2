@@ -1,7 +1,17 @@
+import { useState } from 'react';
 import PhotoAlbum from './components/PhotoAlbum'
 import QAChecklist from './components/QAChecklist'
+import checklistImageMapping from './data/checklistImageMapping'
 
 function App() {
+  const [selectedChecklistItem, setSelectedChecklistItem] = useState(null);
+  const [checklistMapping, setChecklistMapping] = useState(null);
+
+  const handleChecklistItemClick = (itemId, mapping) => {
+    setSelectedChecklistItem(itemId);
+    setChecklistMapping(mapping);
+  };
+
   return (
     <div className="bg-neutral-50 min-h-screen">
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -33,11 +43,14 @@ function App() {
       
       <div className="flex">
         {/* Sidebar Navigation */}
-        <QAChecklist />
+        <QAChecklist onChecklistItemClick={handleChecklistItemClick} />
         
         {/* Main Content */}
         <main className="flex-1 px-6 py-6">
-          <PhotoAlbum />
+          <PhotoAlbum 
+            selectedChecklistItem={selectedChecklistItem} 
+            checklistMapping={checklistMapping} 
+          />
         </main>
       </div>
     </div>
