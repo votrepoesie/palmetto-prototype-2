@@ -1,8 +1,19 @@
+/* Import Figtree font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+/* Import Space Grotesk for headings */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Custom styles can go below */
+@layer base {
+  html {
+    font-family: 'Figtree', sans-serif;
+  }
+}
+
 body {
   @apply m-0 min-w-[320px] min-h-screen bg-gradient-to-br from-neutral-50 to-indigo-100;
 }
@@ -14,5 +25,33 @@ body {
   }
   button:hover {
     @apply border-[#646cff];
+  }
+  
+  .portal-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* Sun icon animation */
+  .sun-rotate {
+    animation: rotate-sun 5s infinite ease-in-out;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  @keyframes rotate-sun {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    15% {
+      transform: rotate(60deg) scale(1.1);
+    }
+    30% {
+      transform: rotate(120deg) scale(1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
   }
 }

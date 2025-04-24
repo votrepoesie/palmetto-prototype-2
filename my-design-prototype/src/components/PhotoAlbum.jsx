@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import PhotoCluster from './PhotoCluster';
 import ImageModal from './ImageModal';
+import inverterImage1 from '../assets/inverter-type-1.png';
+import inverterImage2 from '../assets/inverter-type-2.png';
+import inverterImage3 from '../assets/inverter-type-3.png';
+import inverterImage4 from '../assets/inverter-type-4.png';
+import inverterImage5 from '../assets/inverter-type-5.png';
+import inverterImage6 from '../assets/inverter-type-6.png';
+import interconnectionImage1 from '../assets/interconnection-1.png';
+import interconnectionImage2 from '../assets/interconnection-2.png';
+import inverterLabelImage from '../assets/inverter-label-1.png';
+import meterImage from '../assets/meter.png';
+import pullbackImage1 from '../assets/pullback-1.png';
+import pullbackImage2 from '../assets/pullback-2.png';
+import pullbackImage3 from '../assets/pullback-3.png';
+import wiringImage1 from '../assets/wiring-1.png';
+import wiringImage2 from '../assets/wiring-2.png';
 
 function PhotoAlbum() {
   const [activeCluster, setActiveCluster] = useState(null);
@@ -12,72 +27,84 @@ function PhotoAlbum() {
       id: 1,
       title: 'Enter from Contract',
       images: [
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&q=80',
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500&q=80',
-        'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 2,
       title: 'Permit',
       images: [
-        'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=500&q=80',
-        'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&q=80',
-        'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 3,
       title: 'Production Model',
       images: [
-        'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&q=80',
-        'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=500&q=80',
-        'https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 4,
       title: 'Design Package Docs',
       images: [
-        'https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=500&q=80',
-        'https://images.unsplash.com/photo-1470723710355-95304d8aece4?w=500&q=80',
-        'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 5,
       title: 'Project Site',
       images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 6,
       title: 'Roof',
       images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     },
     {
       id: 7,
       title: 'Electrical',
       images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
+        inverterImage1,
+        inverterImage2,
+        inverterImage3,
+        inverterImage4,
+        inverterImage5,
+        inverterImage6,
+        inverterLabelImage,
+        meterImage,
+        wiringImage1,
+        wiringImage2,
+        interconnectionImage1,
+        interconnectionImage2,
+        pullbackImage1,
+        pullbackImage2,
+        pullbackImage3,
       ]
     },
     {
       id: 8,
       title: 'Storage',
       images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
+        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect width="100%25" height="100%25" fill="%23E5E7EB"/%3E%3C/svg%3E',
       ]
     }
   ];
@@ -106,8 +133,8 @@ function PhotoAlbum() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4 sticky top-0 bg-white z-10 py-2">
-        <h2 className="text-xl font-medium text-gray-800">Photos</h2>
+      <div className="flex items-center justify-between mb-4 sticky top-0 z-10 py-2 h-[40px]">
+        <h2 className="text-xl font-medium text-gray-800">M1 Checklist Items</h2>
         {activeCluster && (
           <button 
             onClick={() => setActiveCluster(null)}

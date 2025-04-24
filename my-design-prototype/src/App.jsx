@@ -2,26 +2,35 @@ import PhotoAlbum from './components/PhotoAlbum'
 
 function App() {
   return (
-    <div className="bg-white min-h-screen">
-      <header className="border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center">
+    <div className="bg-neutral-50 min-h-screen">
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center">
           <div className="flex items-center gap-2">
-            <svg className="w-8 h-8 text-[#34a853]" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+            {/* Sun Logo */}
+            <svg className="w-8 h-8 text-amber-500 sun-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-            <h1 className="text-xl font-medium">Photos</h1>
+            <h1 className="text-xl font-bold portal-heading">QA ASSISTANT</h1>
           </div>
-          <div className="ml-auto">
+          <div className="ml-auto flex-1 max-w-xl mx-4">
             <input 
               type="text" 
               placeholder="Search your photos" 
-              className="bg-gray-100 rounded-full py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-gray-100 rounded-full py-2 px-6 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-colors"
             />
           </div>
         </div>
       </header>
       
-      <main className="max-w-6xl mx-auto px-4 py-6">
+      <main className="max-w-7xl mx-auto px-4 py-6">
         <PhotoAlbum />
       </main>
     </div>
