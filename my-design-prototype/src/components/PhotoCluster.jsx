@@ -28,11 +28,11 @@ function PhotoCluster({ cluster, onClick }) {
         
         {/* Additional image thumbnails (if more than 1 image) */}
         {previewImages.length > 1 && (
-          <div className="absolute bottom-2 right-2 flex gap-2">
+          <div className="absolute bottom-4 right-4 flex gap-4">
             {previewImages.slice(1).map((img, index) => (
               <div 
                 key={index} 
-                className="w-12 h-12 rounded-md overflow-hidden border-2 border-white shadow"
+                className="w-40 h-40 rounded-lg overflow-hidden border-3 border-white shadow-lg"
               >
                 <img 
                   src={img} 

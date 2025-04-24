@@ -4,9 +4,7 @@
 
 /* Custom styles can go below */
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  @apply m-0 min-w-[320px] min-h-screen bg-gradient-to-br from-neutral-50 to-indigo-100;
 }
 
 @layer components {
