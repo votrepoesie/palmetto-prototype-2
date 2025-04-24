@@ -10,7 +10,7 @@ function PhotoAlbum() {
   const clusters = [
     {
       id: 1,
-      title: 'Enter from Contract',
+      title: 'Nature',
       images: [
         'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&q=80',
         'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500&q=80',
@@ -19,7 +19,7 @@ function PhotoAlbum() {
     },
     {
       id: 2,
-      title: 'Permit',
+      title: 'Urban',
       images: [
         'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=500&q=80',
         'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&q=80',
@@ -28,7 +28,7 @@ function PhotoAlbum() {
     },
     {
       id: 3,
-      title: 'Production Model',
+      title: 'Wildlife',
       images: [
         'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&q=80',
         'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=500&q=80',
@@ -37,7 +37,7 @@ function PhotoAlbum() {
     },
     {
       id: 4,
-      title: 'Design Package Docs',
+      title: 'Architecture',
       images: [
         'https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=500&q=80',
         'https://images.unsplash.com/photo-1470723710355-95304d8aece4?w=500&q=80',
@@ -46,34 +46,7 @@ function PhotoAlbum() {
     },
     {
       id: 5,
-      title: 'Project Site',
-      images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
-      ]
-    },
-    {
-      id: 6,
-      title: 'Roof',
-      images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
-      ]
-    },
-    {
-      id: 7,
-      title: 'Electrical',
-      images: [
-        'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
-        'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
-        'https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=500&q=80',
-      ]
-    },
-    {
-      id: 8,
-      title: 'Storage',
+      title: 'Abstract',
       images: [
         'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80',
         'https://images.unsplash.com/photo-1507908708918-778587c9e563?w=500&q=80',
@@ -106,40 +79,50 @@ function PhotoAlbum() {
 
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold mb-6">M1 Checklist</h2>
-      
-      {activeCluster ? (
-        // Expanded view for active cluster
-        <div className="transition-all duration-300">
+      <div className="flex items-center justify-between mb-4 sticky top-0 bg-white z-10 py-2">
+        <h2 className="text-xl font-medium text-gray-800">Photos</h2>
+        {activeCluster && (
           <button 
             onClick={() => setActiveCluster(null)}
-            className="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg"
+            className="bg-transparent hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-full flex items-center text-sm"
           >
+            <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
+            </svg>
             Back
           </button>
+        )}
+      </div>
+      
+      {activeCluster ? (
+        // Expanded view for active cluster - Google Photos style
+        <div className="transition-all duration-300">
+          <div className="mb-4">
+            <h3 className="text-lg font-medium text-gray-800">{activeClusterObj.title}</h3>
+            <p className="text-sm text-gray-500">{activeClusterObj.images.length} items</p>
+          </div>
           
-          <div className="expanded-cluster">
-            <h3 className="text-xl font-semibold mb-4">{activeClusterObj.title}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {activeClusterObj.images.map((img, index) => (
-                <div 
-                  key={index} 
-                  className="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                  onClick={() => handleImageClick(img, `${activeClusterObj.title} - Image ${index + 1}`)}
-                >
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+            {activeClusterObj.images.map((img, index) => (
+              <div 
+                key={index} 
+                className="overflow-hidden cursor-pointer group relative"
+                onClick={() => handleImageClick(img, `${activeClusterObj.title} - Image ${index + 1}`)}
+              >
+                <div className="aspect-square w-full">
                   <img 
                     src={img} 
                     alt={`${activeClusterObj.title} ${index + 1}`} 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform"
+                    className="w-full h-full object-cover group-hover:brightness-95 transition-all"
                   />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       ) : (
-        // Grid view of all clusters
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        // Grid view of all clusters - Google Photos style
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {clusters.map(cluster => (
             <PhotoCluster 
               key={cluster.id}
