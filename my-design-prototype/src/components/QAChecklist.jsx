@@ -16,6 +16,62 @@ function QAChecklist({ onChecklistItemClick, onToggleCollapse }) {
   // Checklist data structure
   const checklistData = [
     {
+      id: 'contract',
+      name: 'Contract',
+      items: [
+        { id: 'customer-name', name: 'Customer Name', status: 'found' },
+        { id: 'address', name: 'Address', status: 'found' },
+        { id: 'system-size', name: 'System Size (kW)', status: 'found' },
+        { id: 'annual-production', name: 'Estimated Annual Production (kWh)', status: 'found' },
+        { id: 'contract-type', name: 'Contract Type', status: 'found' },
+        { id: 'utility-bill-matches', name: 'Utility Bill Matches Contract', status: 'found' },
+        { id: 'battery-status', name: 'Battery Inclusion and Installation Status', status: 'found' },
+        { id: 'pv-system-adders', name: 'PV System & Adders Match', status: 'found' },
+        { id: 'second-system-status', name: 'Existing or Second System Status', status: 'found' },
+      ]
+    },
+    {
+      id: 'permit',
+      name: 'Permit',
+      items: [
+        { id: 'permit-validity', name: 'Permit Validity', status: 'found' },
+      ]
+    },
+    {
+      id: 'production-model',
+      name: 'Production Model',
+      items: [
+        { id: 'shade-report', name: 'Shade Report Pitches', status: 'found' },
+        { id: 'design-software', name: 'Design Software Platform', status: 'found' },
+        { id: 'shading-analysis', name: 'Shading Analysis Engine', status: 'found' },
+        { id: 'horizon-shading', name: 'Horizon Shading Method', status: 'found' },
+        { id: 'lidar-shading', name: 'LIDAR Shading Status', status: 'found' },
+        { id: 'weather-dataset', name: 'Weather Dataset Source', status: 'found' },
+        { id: 'inverter-efficiency', name: 'Inverter Efficiency Percentage', status: 'found' },
+        { id: 'dc-ac-ratio', name: 'Inverter DC-to-AC Ratio', status: 'found' },
+        { id: 'system-loss', name: 'Total System Loss Percentage', status: 'found' },
+        { id: 'snow-load', name: 'Snow Load Value', status: 'found' },
+      ]
+    },
+    {
+      id: 'design-package-documents',
+      name: 'Design Package Documents',
+      items: [
+        { id: 'planset-production-match', name: 'Planset and Production Model Layout Match', status: 'found' },
+        { id: 'installed-production-match', name: 'Installed and Production Model Layout Match', status: 'found' },
+        { id: 'planset-installation-match', name: 'Planset and Installation Layout Match', status: 'found' },
+        { id: 'on-array-pitch', name: 'On-Array Pitch Measurement', status: 'found' },
+        { id: 'installed-array-pitches', name: 'Installed Array Pitches', status: 'found' },
+      ]
+    },
+    {
+      id: 'project-site',
+      name: 'Project Site',
+      items: [
+        { id: 'trenching', name: 'Trenching', status: 'found' },
+      ]
+    },
+    {
       id: 'roof',
       name: 'Roof',
       items: [
