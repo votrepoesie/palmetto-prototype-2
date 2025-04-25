@@ -23,7 +23,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center">
           <div className="flex items-center gap-2">
             {/* Sun Logo */}
-            <svg className="w-8 h-8 text-amber-500 sun-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-6 h-6 text-amber-500 sun-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -58,6 +58,7 @@ function App() {
           <PhotoAlbum 
             selectedChecklistItem={selectedChecklistItem} 
             checklistMapping={checklistMapping} 
+            onChecklistItemClick={handleChecklistItemClick}
           />
         </main>
       </div>

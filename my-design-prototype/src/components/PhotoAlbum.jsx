@@ -34,7 +34,7 @@ import underArrayImage from '../assets/under-array.png';
 // ------------------------------------------------------------------------------------------------
 // PhotoAlbum Component
 // ------------------------------------------------------------------------------------------------
-function PhotoAlbum({ selectedChecklistItem, checklistMapping }) {
+function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemClick }) {
   const [activeCluster, setActiveCluster] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedPdf, setSelectedPdf] = useState(null);
@@ -112,7 +112,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping }) {
         inverterImage1,
         inverterImage2,
         inverterImage3,
-        inverterImage4,
+        // inverterImage4,
         inverterImage5,
         inverterImage6,
         inverterLabelImage,
@@ -229,12 +229,12 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping }) {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4 sticky top-0 bg-white z-10 py-2">
-        <h2 className="text-xl font-medium text-gray-800">Photos</h2>
+      <div className="flex items-center justify-between mb-4 sticky top-0 z-10 py-2 h-[40px]">
+        <h2 className="text-xl font-semibold text-gray-800">Documents & Images</h2>
         {activeCluster && (
           <button 
             onClick={() => setActiveCluster(null)}
-            className="bg-transparent hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-full flex items-center text-sm"
+            className="bg-transparent hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full flex items-center text-sm"
           >
             <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
@@ -243,11 +243,22 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping }) {
           </button>
         )}
         
-        {/* Show info about selected checklist item if any */}
+        {/* Show info about selected checklist item if any - now as a filter chip */}
         {selectedChecklistItem && (
-          <div className="ml-4 flex-1 text-sm">
-            <span className="text-blue-700 font-medium">Showing images for: </span>
-            <span>{checklistMapping?.name || selectedChecklistItem}</span>
+          <div className="ml-4 flex-1">
+            <div className="inline-flex items-center bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
+              <span className="font-medium mr-1">Showing:</span>
+              <span className="mr-2">{checklistMapping?.name || selectedChecklistItem}</span>
+              <button 
+                onClick={() => onChecklistItemClick(null, null)} 
+                className="text-blue-500 hover:text-blue-700 focus:outline-none"
+                title="Clear filter"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         )}
       </div>

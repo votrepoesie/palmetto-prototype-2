@@ -43,8 +43,7 @@ const checklistImageMapping = {
   'battery-status': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [0] },
-      { clusterId: 8, imageIndexes: [0] } // Storage cluster images
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'pv-system-adders': {
@@ -252,13 +251,13 @@ const checklistImageMapping = {
   'inverter-labels': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [3, 4, 6] }
+      { clusterId: 7, imageIndexes: [3, 5] }
     ]
   },
   'production-meter': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [7] }
+      { clusterId: 7, imageIndexes: [6] }
     ]
   },
   'iq-combiner': {
@@ -268,7 +267,7 @@ const checklistImageMapping = {
   'ac-disconnect': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [5, 8] }
+      { clusterId: 7, imageIndexes: [4, 7] }
     ]
   },
   'combiner-panel': {
@@ -282,19 +281,19 @@ const checklistImageMapping = {
   'interconnection': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [10, 11] }
+      { clusterId: 7, imageIndexes: [9, 10] }
     ]
   },
   'equipment-pullback': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [12, 13, 14] }
+      { clusterId: 7, imageIndexes: [11, 12, 13] }
     ]
   },
   'consumption-cts': {
     categoryId: 'electrical',
     imageIds: [
-      { clusterId: 7, imageIndexes: [9] }
+      { clusterId: 7, imageIndexes: [8] }
     ]
   },
 };

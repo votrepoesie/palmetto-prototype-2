@@ -204,7 +204,7 @@ function QAChecklist({ onChecklistItemClick, onToggleCollapse }) {
                   </button>
                   
                   {/* Category Items */}
-                  <div className={`transition-all duration-200 ${activeCategory === category.id ? 'max-h-96 overflow-y-auto' : 'max-h-0 overflow-hidden'}`}>
+                  <div className={`transition-all duration-200 ${activeCategory === category.id ? 'block' : 'hidden'}`}>
                     <ul className="px-2 py-1">
                       {category.items.map(item => {
                         const hasImages = checklistImageMapping[item.id]?.imageIds.length > 0;
