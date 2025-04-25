@@ -13,19 +13,19 @@ const checklistImageMapping = {
   'address': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [0, 1] }
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'system-size': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [0, 2] }
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'annual-production': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [0, 2] }
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'contract-type': {
@@ -37,20 +37,20 @@ const checklistImageMapping = {
   'utility-bill-matches': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [1] }
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'battery-status': {
     categoryId: 'contract',
     imageIds: [
       { clusterId: 1, imageIndexes: [0] },
-      { clusterId: 8, imageIndexes: [0, 1, 2] } // Storage cluster images
+      { clusterId: 8, imageIndexes: [0] } // Storage cluster images
     ]
   },
   'pv-system-adders': {
     categoryId: 'contract',
     imageIds: [
-      { clusterId: 1, imageIndexes: [0, 2] }
+      { clusterId: 1, imageIndexes: [0] }
     ]
   },
   'second-system-status': {
@@ -61,164 +61,164 @@ const checklistImageMapping = {
   },
 
   // Permit category mappings
-  'permit-validity': {
-    categoryId: 'permit',
-    imageIds: [
-      { clusterId: 2, imageIndexes: [0] }
-    ]
-  },
+  // 'permit-validity': {
+  //   categoryId: 'permit',
+  //   imageIds: [
+  //     { clusterId: 2, imageIndexes: [0] }
+  //   ]
+  // },
 
   // Production Model category mappings
-  'shade-report': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0] }
-    ]
-  },
-  'design-software': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 1] }
-    ]
-  },
-  'shading-analysis': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 1] }
-    ]
-  },
-  'horizon-shading': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 1] }
-    ]
-  },
-  'lidar-shading': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 1] }
-    ]
-  },
-  'weather-dataset': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 2] }
-    ]
-  },
-  'inverter-efficiency': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 2] },
-      { clusterId: 7, imageIndexes: [0, 1, 2] } // Also link to electrical inverter images
-    ]
-  },
-  'dc-ac-ratio': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 2] },
-      { clusterId: 7, imageIndexes: [0, 1, 2] } // Also link to electrical inverter images
-    ]
-  },
-  'system-loss': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 2] }
-    ]
-  },
-  'snow-load': {
-    categoryId: 'production-model',
-    imageIds: [
-      { clusterId: 3, imageIndexes: [0, 2] }
-    ]
-  },
+  // 'shade-report': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0] }
+  //   ]
+  // },
+  // 'design-software': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 1] }
+  //   ]
+  // },
+  // 'shading-analysis': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 1] }
+  //   ]
+  // },
+  // 'horizon-shading': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 1] }
+  //   ]
+  // },
+  // 'lidar-shading': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 1] }
+  //   ]
+  // },
+  // 'weather-dataset': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 2] }
+  //   ]
+  // },
+  // 'inverter-efficiency': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 2] },
+  //     { clusterId: 7, imageIndexes: [0, 1, 2] } // Also link to electrical inverter images
+  //   ]
+  // },
+  // 'dc-ac-ratio': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 2] },
+  //     { clusterId: 7, imageIndexes: [0, 1, 2] } // Also link to electrical inverter images
+  //   ]
+  // },
+  // 'system-loss': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 2] }
+  //   ]
+  // },
+  // 'snow-load': {
+  //   categoryId: 'production-model',
+  //   imageIds: [
+  //     { clusterId: 3, imageIndexes: [0, 2] }
+  //   ]
+  // },
 
   // Design Package Documents category mappings
-  'planset-production-match': {
-    categoryId: 'design-package-documents',
-    imageIds: [
-      { clusterId: 4, imageIndexes: [0, 1] },
-      { clusterId: 3, imageIndexes: [0] } // Link to Production Model
-    ]
-  },
-  'installed-production-match': {
-    categoryId: 'design-package-documents',
-    imageIds: [
-      { clusterId: 4, imageIndexes: [0, 1] },
-      { clusterId: 3, imageIndexes: [0] }, // Link to Production Model
-      { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for installation photos
-    ]
-  },
-  'planset-installation-match': {
-    categoryId: 'design-package-documents',
-    imageIds: [
-      { clusterId: 4, imageIndexes: [0, 1] },
-      { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for installation photos
-    ]
-  },
-  'on-array-pitch': {
-    categoryId: 'design-package-documents',
-    imageIds: [
-      { clusterId: 4, imageIndexes: [0, 2] },
-      { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for array pitch photos
-    ]
-  },
-  'installed-array-pitches': {
-    categoryId: 'design-package-documents',
-    imageIds: [
-      { clusterId: 4, imageIndexes: [0, 2] },
-      { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for array pitch photos
-    ]
-  },
+  // 'planset-production-match': {
+  //   categoryId: 'design-package-documents',
+  //   imageIds: [
+  //     { clusterId: 4, imageIndexes: [0, 1] },
+  //     { clusterId: 3, imageIndexes: [0] } // Link to Production Model
+  //   ]
+  // },
+  // 'installed-production-match': {
+  //   categoryId: 'design-package-documents',
+  //   imageIds: [
+  //     { clusterId: 4, imageIndexes: [0, 1] },
+  //     { clusterId: 3, imageIndexes: [0] }, // Link to Production Model
+  //     { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for installation photos
+  //   ]
+  // },
+  // 'planset-installation-match': {
+  //   categoryId: 'design-package-documents',
+  //   imageIds: [
+  //     { clusterId: 4, imageIndexes: [0, 1] },
+  //     { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for installation photos
+  //   ]
+  // },
+  // 'on-array-pitch': {
+  //   categoryId: 'design-package-documents',
+  //   imageIds: [
+  //     { clusterId: 4, imageIndexes: [0, 2] },
+  //     { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for array pitch photos
+  //   ]
+  // },
+  // 'installed-array-pitches': {
+  //   categoryId: 'design-package-documents',
+  //   imageIds: [
+  //     { clusterId: 4, imageIndexes: [0, 2] },
+  //     { clusterId: 6, imageIndexes: [0, 1, 2] } // Link to Roof for array pitch photos
+  //   ]
+  // },
 
   // Project Site category mappings
-  'trenching': {
-    categoryId: 'project-site',
-    imageIds: [
-      { clusterId: 5, imageIndexes: [0] }
-    ]
-  },
+  // 'trenching': {
+  //   categoryId: 'project-site',
+  //   imageIds: [
+  //     { clusterId: 5, imageIndexes: [0] }
+  //   ]
+  // },
 
   // Roof category mappings
   'mounting-type': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [0, 1] }, // Roof cluster, first two images
+      { clusterId: 6, imageIndexes: [4, 5] }, 
     ]
   },
   'racking-avl': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [2, 3] }
+      { clusterId: 6, imageIndexes: [4, 5] }
     ]
   },
   'attachment': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [4, 5] }
+      { clusterId: 6, imageIndexes: [8] }
     ]
   },
   'opto-micro': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [6] }
+      { clusterId: 6, imageIndexes: [6, 7] }
     ]
   },
   'egc-path': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [7, 8] }
+      { clusterId: 6, imageIndexes: [7] }
     ]
   },
   'array-completion': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [9, 10] }
+      { clusterId: 6, imageIndexes: [0, 1] }
     ]
   },
   'under-array': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [11] }
+      { clusterId: 6, imageIndexes: [9] }
     ]
   },
   'junction-box': {
@@ -232,13 +232,13 @@ const checklistImageMapping = {
   'module-label': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [12] }
+      { clusterId: 6, imageIndexes: [2, 3] }
     ]
   },
   'module-serial': {
     categoryId: 'roof',
     imageIds: [
-      { clusterId: 6, imageIndexes: [13, 14] }
+      { clusterId: 6, imageIndexes: [3] }
     ]
   },
 
