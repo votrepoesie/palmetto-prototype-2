@@ -4,6 +4,32 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
   // Show at most 4 images in the cluster preview (Google Photos style)
   const previewImages = images.slice(0, 4);
   
+  // Helper to render appropriate thumbnail for an item
+  const renderThumbnail = (item, index, additionalClasses = '') => {
+    if (typeof item === 'object' && item.type === 'pdf') {
+      return (
+        <div className={`relative w-full h-full ${additionalClasses}`}>
+          <iframe
+            src={`${item.url}#page=1&view=FitH`}
+            className="absolute inset-0 w-full h-full"
+            title={item.title}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-2">
+            <span className="text-xs text-white font-semibold truncate block">{item.title}</span>
+          </div>
+        </div>
+      );
+    }
+    
+    return (
+      <img 
+        src={item} 
+        alt={`${title} image ${index + 1}`}
+        className={`w-full h-full object-cover ${additionalClasses}`}
+      />
+    );
+  };
+
   return (
     <div 
       onClick={onClick}
@@ -16,13 +42,11 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
       <div className="relative">
         {previewImages.length === 1 && (
           <div className="aspect-[4/3] overflow-hidden">
-            <img 
-              src={previewImages[0]} 
-              alt={`${title} cover`}
-              className={`w-full h-full object-cover ${
-                isHighlighted && highlightedImageIndexes.includes(0) ? 'brightness-110' : ''
-              }`}
-            />
+            {renderThumbnail(
+              previewImages[0], 
+              0, 
+              isHighlighted && highlightedImageIndexes.includes(0) ? 'brightness-110' : ''
+            )}
             {isHighlighted && highlightedImageIndexes.includes(0) && (
               <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -35,15 +59,13 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
         
         {previewImages.length === 2 && (
           <div className="grid grid-cols-2 gap-1 aspect-[4/3]">
-            {previewImages.map((img, index) => (
+            {previewImages.map((item, index) => (
               <div key={index} className="overflow-hidden relative">
-                <img 
-                  src={img} 
-                  alt={`${title} image ${index + 1}`}
-                  className={`w-full h-full object-cover ${
-                    isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
-                  }`}
-                />
+                {renderThumbnail(
+                  item, 
+                  index, 
+                  isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
+                )}
                 {isHighlighted && highlightedImageIndexes.includes(index) && (
                   <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md z-10">
                     <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -59,13 +81,11 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
         {previewImages.length === 3 && (
           <div className="grid grid-cols-2 gap-1 aspect-[4/3]">
             <div className="row-span-2 overflow-hidden relative">
-              <img 
-                src={previewImages[0]} 
-                alt={`${title} main image`}
-                className={`w-full h-full object-cover ${
-                  isHighlighted && highlightedImageIndexes.includes(0) ? 'brightness-110' : ''
-                }`}
-              />
+              {renderThumbnail(
+                previewImages[0], 
+                0, 
+                isHighlighted && highlightedImageIndexes.includes(0) ? 'brightness-110' : ''
+              )}
               {isHighlighted && highlightedImageIndexes.includes(0) && (
                 <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
                   <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -74,17 +94,15 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
                 </div>
               )}
             </div>
-            {previewImages.slice(1).map((img, i) => {
+            {previewImages.slice(1).map((item, i) => {
               const index = i + 1; // Adjust index to account for the slice
               return (
                 <div key={index} className="overflow-hidden relative">
-                  <img 
-                    src={img} 
-                    alt={`${title} image ${index + 1}`}
-                    className={`w-full h-full object-cover ${
-                      isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
-                    }`}
-                  />
+                  {renderThumbnail(
+                    item, 
+                    index, 
+                    isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
+                  )}
                   {isHighlighted && highlightedImageIndexes.includes(index) && (
                     <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                       <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -100,15 +118,13 @@ function PhotoCluster({ cluster, onClick, isHighlighted, highlightedImageIndexes
         
         {previewImages.length >= 4 && (
           <div className="grid grid-cols-2 gap-1 aspect-[4/3]">
-            {previewImages.map((img, index) => (
+            {previewImages.map((item, index) => (
               <div key={index} className="overflow-hidden relative">
-                <img 
-                  src={img} 
-                  alt={`${title} image ${index + 1}`}
-                  className={`w-full h-full object-cover ${
-                    isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
-                  }`}
-                />
+                {renderThumbnail(
+                  item, 
+                  index, 
+                  isHighlighted && highlightedImageIndexes.includes(index) ? 'brightness-110' : ''
+                )}
                 {isHighlighted && highlightedImageIndexes.includes(index) && (
                   <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
