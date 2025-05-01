@@ -1,0 +1,225 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Solar Installation Plan Set)
+   /Creator (Claude 3.7)
+   /Producer (Solar Plan Generator)
+   /Author (Palmetto Solar)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog
+   /Pages 3 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages
+   /Kids [4 0 R 7 0 R 10 0 R]
+   /Count 3
+>>
+endobj
+4 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 5 0 R
+   /Resources << /Font << /F1 6 0 R >> >>
+>>
+endobj
+5 0 obj
+<< /Length 770 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(SOLAR INSTALLATION PLAN SET) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Property Address: 123 Sunshine Avenue, Solar City, CA 94123) Tj
+0 -20 Td
+(Customer: John & Sarah Anderson) Tj
+0 -20 Td
+(System Size: 8.4 kW DC / 7.2 kW AC) Tj
+0 -20 Td
+(Panel Count: 24 x 350W Modules) Tj
+0 -20 Td
+(Inverter: SolarEdge SE7600H-US) Tj
+0 -20 Td
+(Mounting System: SnapNrack 100) Tj
+0 -40 Td
+(SITE LAYOUT - ROOF PLAN) Tj
+0 -20 Td
+(Page 1 of 3: System Overview & Site Plan) Tj
+0 -20 Td
+(This plan set contains the engineering drawings and specifications) Tj
+0 -20 Td
+(for the solar photovoltaic system to be installed at the above address.) Tj
+0 -20 Td
+(All work to be performed in accordance with NEC 2020, local building codes,) Tj
+0 -20 Td
+(and manufacturer installation guidelines.) Tj
+0 -40 Td
+(SYSTEM SPECIFICATIONS:) Tj
+0 -20 Td
+(- Azimuth: 180° \(South\)) Tj
+0 -20 Td
+(- Tilt: 22° \(Roof Pitch 5:12\)) Tj
+0 -20 Td
+(- Annual Production Estimate: 12,870 kWh) Tj
+0 -20 Td
+(- Module Type: Monocrystalline, 350W) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica
+>>
+endobj
+7 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 8 0 R
+   /Resources << /Font << /F1 6 0 R >> >>
+>>
+endobj
+8 0 obj
+<< /Length 730 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(ELECTRICAL SINGLE-LINE DIAGRAM) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Page 2 of 3: Electrical Specifications) Tj
+0 -40 Td
+(ELECTRICAL SPECIFICATIONS:) Tj
+0 -20 Td
+(- String 1: 12 modules \(North Array\)) Tj
+0 -20 Td
+(- String 2: 12 modules \(South Array\)) Tj
+0 -20 Td
+(- Module Voc: 40.2V) Tj
+0 -20 Td
+(- Module Isc: 11.3A) Tj
+0 -20 Td
+(- Max System Voltage: 600V DC) Tj
+0 -20 Td
+(- Max String Voltage: 482.4V \(at -10°C\)) Tj
+0 -20 Td
+(- Inverter Max Input Voltage: 500V DC) Tj
+0 -20 Td
+(- Inverter Max Current: 20A per MPPT) Tj
+0 -40 Td
+(INTERCONNECTION:) Tj
+0 -20 Td
+(- Main Service Panel: 200A, 120/240V Single Phase) Tj
+0 -20 Td
+(- Backfeed Breaker: 40A 2-pole) Tj
+0 -20 Td
+(- Available Bus Rating: 200A) Tj
+0 -20 Td
+(- Load Side Connection) Tj
+0 -20 Td
+(- Rapid Shutdown: Module-level via SolarEdge Power Optimizers) Tj
+0 -20 Td
+(- AC Disconnect: Integrated in Inverter) Tj
+0 -20 Td
+(- Grounding: #6 AWG Copper to GEC) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica
+>>
+endobj
+10 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 11 0 R
+   /Resources << /Font << /F1 9 0 R >> >>
+>>
+endobj
+11 0 obj
+<< /Length 680 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(STRUCTURAL CALCULATIONS & NOTES) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Page 3 of 3: Structural Information) Tj
+0 -40 Td
+(ROOF INFORMATION:) Tj
+0 -20 Td
+(- Roof Type: Composite Shingle) Tj
+0 -20 Td
+(- Roof Age: 8 years) Tj
+0 -20 Td
+(- Roof Material: Asphalt Shingle, Class A) Tj
+0 -20 Td
+(- Roof Pitch: 5:12 \(22.6 degrees\)) Tj
+0 -20 Td
+(- Rafter Spacing: 24" O.C.) Tj
+0 -20 Td
+(- Rafter Size: 2x8) Tj
+0 -40 Td
+(LOADING CALCULATIONS:) Tj
+0 -20 Td
+(- Dead Load \(Existing\): 10 psf) Tj
+0 -20 Td
+(- Dead Load \(Added\): 3.5 psf) Tj
+0 -20 Td
+(- Live Load: 20 psf) Tj
+0 -20 Td
+(- Snow Load: 0 psf) Tj
+0 -20 Td
+(- Wind Speed: 110 mph) Tj
+0 -20 Td
+(- Exposure Category: B) Tj
+0 -20 Td
+(- Array Weight: 834 lbs) Tj
+0 -20 Td
+(- Attachment Point Count: 48) Tj
+0 -20 Td
+(- Load per Attachment: 17.4 lbs) Tj
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f
+0000000009 00000 n
+0000000136 00000 n
+0000000185 00000 n
+0000000254 00000 n
+0000000389 00000 n
+0000001210 00000 n
+0000001287 00000 n
+0000001422 00000 n
+0000002203 00000 n
+0000002280 00000 n
+0000002417 00000 n
+trailer
+<< /Size 12
+   /Root 2 0 R
+   /Info 1 0 R
+>>
+startxref
+3148
+%%EOF

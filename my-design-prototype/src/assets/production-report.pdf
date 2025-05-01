@@ -1,0 +1,229 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Solar Production Report)
+   /Creator (Claude 3.7)
+   /Producer (Solar Report Generator)
+   /Author (Palmetto Solar)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog
+   /Pages 3 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages
+   /Kids [4 0 R 7 0 R 10 0 R]
+   /Count 3
+>>
+endobj
+4 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 5 0 R
+   /Resources << /Font << /F1 6 0 R >> >>
+>>
+endobj
+5 0 obj
+<< /Length 780 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(SOLAR PRODUCTION REPORT) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Property Address: 123 Sunshine Avenue, Solar City, CA 94123) Tj
+0 -20 Td
+(Customer: John & Sarah Anderson) Tj
+0 -20 Td
+(System Size: 8.4 kW DC / 7.2 kW AC) Tj
+0 -20 Td
+(Report Date: October 15, 2023) Tj
+0 -40 Td
+(SYSTEM PERFORMANCE SUMMARY) Tj
+0 -20 Td
+(Page 1 of 3: Production Overview) Tj
+0 -20 Td
+(This report provides detailed production data and performance metrics) Tj
+0 -20 Td
+(for the installed solar photovoltaic system at the above address.) Tj
+0 -40 Td
+(PRODUCTION SUMMARY:) Tj
+0 -20 Td
+(- System Commissioned: April 10, 2023) Tj
+0 -20 Td
+(- Days in Operation: 188) Tj
+0 -20 Td
+(- Total Energy Generated: 7,438 kWh) Tj
+0 -20 Td
+(- Average Daily Production: 39.6 kWh) Tj
+0 -20 Td
+(- Peak Daily Production: 56.2 kWh \(June 21, 2023\)) Tj
+0 -20 Td
+(- Estimated Annual Production: 12,870 kWh) Tj
+0 -20 Td
+(- Performance Ratio: 98.3%) Tj
+0 -20 Td
+(- CO₂ Emissions Avoided: 5.37 metric tons) Tj
+0 -20 Td
+(- Equivalent Trees Planted: 88) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica
+>>
+endobj
+7 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 8 0 R
+   /Resources << /Font << /F1 6 0 R >> >>
+>>
+endobj
+8 0 obj
+<< /Length 760 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(MONTHLY PRODUCTION ANALYSIS) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Page 2 of 3: Monthly Performance Metrics) Tj
+0 -40 Td
+(MONTHLY PRODUCTION DATA:) Tj
+0 -20 Td
+(April 2023: 834 kWh \(21 days\)) Tj
+0 -20 Td
+(May 2023: 1,364 kWh) Tj
+0 -20 Td
+(June 2023: 1,532 kWh) Tj
+0 -20 Td
+(July 2023: 1,620 kWh) Tj
+0 -20 Td
+(August 2023: 1,487 kWh) Tj
+0 -20 Td
+(September 2023: 984 kWh) Tj
+0 -20 Td
+(October 2023: 419 kWh \(15 days\)) Tj
+0 -40 Td
+(PERFORMANCE METRICS:) Tj
+0 -20 Td
+(- Specific Yield: 4.71 kWh/kWp/day \(average\)) Tj
+0 -20 Td
+(- System Efficiency: 19.8%) Tj
+0 -20 Td
+(- Performance Index: 1.04 \(exceeding projections by 4%\)) Tj
+0 -20 Td
+(- Sunny Days: 142) Tj
+0 -20 Td
+(- Partially Cloudy Days: 38) Tj
+0 -20 Td
+(- Cloudy Days: 8) Tj
+0 -20 Td
+(- Hours of Production: 2,444) Tj
+0 -20 Td
+(- Average Daily Sunshine Hours: 13.0) Tj
+0 -20 Td
+(- Grid Outages: 1 \(4 hours on July 23, 2023\)) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica
+>>
+endobj
+10 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 11 0 R
+   /Resources << /Font << /F1 9 0 R >> >>
+>>
+endobj
+11 0 obj
+<< /Length 740 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(FINANCIAL & ENVIRONMENTAL IMPACT) Tj
+/F1 14 Tf
+0 -30 Td
+(Project: Residential Solar Installation) Tj
+/F1 12 Tf
+0 -25 Td
+(Page 3 of 3: Financial Performance & Environmental Benefits) Tj
+0 -40 Td
+(FINANCIAL PERFORMANCE:) Tj
+0 -20 Td
+(- Energy Cost Avoided: $2,418.35) Tj
+0 -20 Td
+(- Average Monthly Savings: $402.89) Tj
+0 -20 Td
+(- Utility Rate: $0.325 per kWh) Tj
+0 -20 Td
+(- System Cost: $24,500 \(after incentives\)) Tj
+0 -20 Td
+(- Payback Period Projection: 6.2 years) Tj
+0 -20 Td
+(- 25-Year Savings Projection: $92,750) Tj
+0 -20 Td
+(- ROI: 378% \(over 25 years\)) Tj
+0 -40 Td
+(ENVIRONMENTAL IMPACT:) Tj
+0 -20 Td
+(- CO₂ Emissions Avoided: 5.37 metric tons) Tj
+0 -20 Td
+(- Equivalent in Gas-Powered Cars: 1.17 vehicles off the road) Tj
+0 -20 Td
+(- Equivalent in Miles Driven: 13,483 miles) Tj
+0 -20 Td
+(- Equivalent in Coal Burned: 5,924 pounds) Tj
+0 -20 Td
+(- Equivalent in Smartphones Charged: 657,184) Tj
+0 -20 Td
+(- Carbon Sequestration Equivalent: 88 trees grown for 10 years) Tj
+0 -20 Td
+(- Water Saved \(vs. fossil fuel generation\): 4,163 gallons) Tj
+0 -20 Td
+(- Landfill Waste Avoided: 1,823 pounds) Tj
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f
+0000000009 00000 n
+0000000136 00000 n
+0000000185 00000 n
+0000000254 00000 n
+0000000389 00000 n
+0000001220 00000 n
+0000001297 00000 n
+0000001432 00000 n
+0000002243 00000 n
+0000002320 00000 n
+0000002457 00000 n
+trailer
+<< /Size 12
+   /Root 2 0 R
+   /Info 1 0 R
+>>
+startxref
+3248
+%%EOF

@@ -17,8 +17,10 @@ import pullbackImage2 from '../assets/pullback-2.png';
 import pullbackImage3 from '../assets/pullback-3.png';
 import wiringImage1 from '../assets/wiring-1.png';
 import wiringImage2 from '../assets/wiring-2.png';
-// Contract
+// Documents
 import sampleContractPdf from '../assets/sample-contract.pdf';
+import planSetPdf from '../assets/plan-set.pdf';
+import productionReportPdf from '../assets/production-report.pdf';
 // Roof images
 import arrayCompletionImage1 from '../assets/array-completion-1.png';
 import arrayCompletionImage2 from '../assets/array-completion-2.png';
@@ -143,13 +145,13 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
     {
       title: 'Plan Set',
       type: 'pdf',
-      url: 'about:blank', // Placeholder URL for demo
+      url: planSetPdf,
       description: 'View the complete plan set'
     },
     {
       title: 'Production Report',
       type: 'pdf',
-      url: 'about:blank', // Placeholder URL for demo
+      url: productionReportPdf,
       description: 'View the production report'
     },
     {
@@ -297,7 +299,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
 
         {/* Main content - adjust width based on whether a document is pinned */}
         <div className={`flex flex-col ${pinnedDocument ? 'w-1/2' : 'w-full'}`}>
-          {/* Quick Actions Section */}
+          {/* Quick Actions Section - Moved above the Documents & Images header */}
           <div className="mb-4 p-5 border border-gray-200 rounded-lg bg-white">
             <h3 className="font-medium text-gray-700 mb-4">Quick Actions</h3>
             <div className="flex gap-3">
@@ -355,7 +357,8 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
                 <p className="text-sm text-gray-500">{activeClusterObj.images.length} items</p>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+              {/* Make thumbnails larger when a document is pinned */}
+              <div className={`grid ${pinnedDocument ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'} gap-2`}>
                 {activeClusterObj.images.map((item, index) => {
                   const isHighlighted = isImageHighlighted(activeCluster, index);
                   
