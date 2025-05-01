@@ -38,6 +38,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
   const [activeCluster, setActiveCluster] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedPdf, setSelectedPdf] = useState(null);
+  const [pinnedDocument, setPinnedDocument] = useState(null);
   const [highlightedImages, setHighlightedImages] = useState([]);
   
   // Sample data for photo clusters
@@ -137,6 +138,28 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
     // }
   ];
 
+  // Documents for quick actions
+  const quickActionDocuments = [
+    {
+      title: 'Plan Set',
+      type: 'pdf',
+      url: 'about:blank', // Placeholder URL for demo
+      description: 'View the complete plan set'
+    },
+    {
+      title: 'Production Report',
+      type: 'pdf',
+      url: 'about:blank', // Placeholder URL for demo
+      description: 'View the production report'
+    },
+    {
+      title: 'Contract',
+      type: 'pdf',
+      url: sampleContractPdf,
+      description: 'View the solar contract'
+    }
+  ];
+
   // Process the selected checklist item and update highlighted images
   useEffect(() => {
     if (selectedChecklistItem && checklistMapping) {
@@ -189,6 +212,21 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
     }
   };
 
+  const handleQuickActionClick = (document) => {
+    // Instead of opening a modal, pin the document to half the screen
+    setPinnedDocument({
+      url: document.url,
+      title: document.title
+    });
+    // Close any open modals
+    setSelectedPdf(null);
+    setSelectedImage(null);
+  };
+
+  const unpinDocument = () => {
+    setPinnedDocument(null);
+  };
+
   const closeModal = () => {
     setSelectedImage(null);
     setSelectedPdf(null);
@@ -229,105 +267,153 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4 sticky top-0 z-10 py-2 h-[40px]">
-        <h2 className="text-xl font-semibold text-gray-800">Documents & Images</h2>
-        {activeCluster && (
-          <button 
-            onClick={() => setActiveCluster(null)}
-            className="bg-transparent hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full flex items-center text-sm"
-          >
-            <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
-            </svg>
-            Back
-          </button>
-        )}
-        
-        {/* Show info about selected checklist item if any - now as a filter chip */}
-        {selectedChecklistItem && (
-          <div className="ml-4 flex-1">
-            <div className="inline-flex items-center bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
-              <span className="font-medium mr-1">Showing:</span>
-              <span className="mr-2">{checklistMapping?.name || selectedChecklistItem}</span>
+      {/* Split view layout with pinned document and main content */}
+      <div className={`flex ${pinnedDocument ? 'space-x-4' : ''}`}>
+        {/* Pinned document section */}
+        {pinnedDocument && (
+          <div className="w-1/2 flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white">
+            <div className="p-3 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+              <h3 className="font-medium text-gray-800">{pinnedDocument.title}</h3>
               <button 
-                onClick={() => onChecklistItemClick(null, null)} 
-                className="text-blue-500 hover:text-blue-700 focus:outline-none"
-                title="Clear filter"
+                onClick={unpinDocument}
+                className="text-gray-500 hover:text-gray-700 p-1 rounded"
+                aria-label="Unpin document"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
             </div>
+            <div className="flex-1 overflow-auto">
+              <iframe
+                src={`${pinnedDocument.url}#view=FitH`}
+                title={pinnedDocument.title}
+                className="w-full h-full border-0"
+                style={{ height: 'calc(100vh - 150px)' }}
+              />
+            </div>
           </div>
         )}
-      </div>
-      
-      {activeCluster ? (
-        // Expanded view for active cluster - Google Photos style
-        <div className="transition-all duration-300">
-          <div className="mb-4">
-            <h3 className="text-lg font-medium text-gray-800">{activeClusterObj.title}</h3>
-            <p className="text-sm text-gray-500">{activeClusterObj.images.length} items</p>
+
+        {/* Main content - adjust width based on whether a document is pinned */}
+        <div className={`flex flex-col ${pinnedDocument ? 'w-1/2' : 'w-full'}`}>
+          {/* Quick Actions Section */}
+          <div className="mb-4 p-5 border border-gray-200 rounded-lg bg-white">
+            <h3 className="font-medium text-gray-700 mb-4">Quick Actions</h3>
+            <div className="flex gap-3">
+              {quickActionDocuments.map((doc, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleQuickActionClick(doc)}
+                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-md transition-colors duration-200"
+                >
+                  {doc.title}
+                </button>
+              ))}
+            </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-            {activeClusterObj.images.map((item, index) => {
-              const isHighlighted = isImageHighlighted(activeCluster, index);
-              
-              return (
-                <div 
-                  key={index} 
-                  className={`overflow-hidden cursor-pointer group relative transition-all duration-200 ${
-                    isHighlighted ? 'ring-4 ring-blue-500 ring-offset-2 z-10 scale-105' : ''
-                  }`}
-                  onClick={() => handleItemClick(item, activeClusterObj.title, index)}
-                >
-                  <div className="aspect-square w-full">
-                    {getThumbnail(item)}
-                  </div>
-                  
-                  {/* Show indicator for highlighted images */}
-                  {isHighlighted && (
-                    <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
-                      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : (
-        // Grid view of all clusters - Google Photos style
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {clusters.map(cluster => {
-            // Determine if this cluster has highlighted images
-            const hasHighlightedImages = highlightedImages.some(
-              highlight => highlight.clusterId === cluster.id
-            );
+          <div className="flex items-center justify-between mb-4 sticky top-0 z-10 py-2 h-[40px]">
+            <h2 className="text-xl font-semibold text-gray-800">Documents & Images</h2>
+            {activeCluster && (
+              <button 
+                onClick={() => setActiveCluster(null)}
+                className="bg-transparent hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full flex items-center text-sm"
+              >
+                <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
+                </svg>
+                Back
+              </button>
+            )}
             
-            return (
-              <PhotoCluster 
-                key={cluster.id}
-                cluster={cluster}
-                onClick={() => handleClusterClick(cluster.id)}
-                isHighlighted={hasHighlightedImages}
-                highlightedImageIndexes={
-                  hasHighlightedImages 
-                    ? highlightedImages
-                        .filter(h => h.clusterId === cluster.id)
-                        .map(h => h.imageIndex)
-                    : []
-                }
-                selectedChecklistItem={selectedChecklistItem}
-              />
-            );
-          })}
+            {/* Show info about selected checklist item if any - now as a filter chip */}
+            {selectedChecklistItem && (
+              <div className="ml-4 flex-1">
+                <div className="inline-flex items-center bg-blue-50 text-blue-700 text-sm px-3 py-1 rounded-full">
+                  <span className="font-medium mr-1">Showing:</span>
+                  <span className="mr-2">{checklistMapping?.name || selectedChecklistItem}</span>
+                  <button 
+                    onClick={() => onChecklistItemClick(null, null)} 
+                    className="text-blue-500 hover:text-blue-700 focus:outline-none"
+                    title="Clear filter"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {activeCluster ? (
+            // Expanded view for active cluster - Google Photos style
+            <div className="transition-all duration-300">
+              <div className="mb-4">
+                <h3 className="text-lg font-medium text-gray-800">{activeClusterObj.title}</h3>
+                <p className="text-sm text-gray-500">{activeClusterObj.images.length} items</p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                {activeClusterObj.images.map((item, index) => {
+                  const isHighlighted = isImageHighlighted(activeCluster, index);
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className={`overflow-hidden cursor-pointer group relative transition-all duration-200 ${
+                        isHighlighted ? 'ring-4 ring-blue-500 ring-offset-2 z-10 scale-105' : ''
+                      }`}
+                      onClick={() => handleItemClick(item, activeClusterObj.title, index)}
+                    >
+                      <div className="aspect-square w-full">
+                        {getThumbnail(item)}
+                      </div>
+                      
+                      {/* Show indicator for highlighted images */}
+                      {isHighlighted && (
+                        <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
+                          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            // Grid view of all clusters - Google Photos style
+            <div className={`grid grid-cols-1 ${pinnedDocument ? 'md:grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-4`}>
+              {clusters.map(cluster => {
+                // Determine if this cluster has highlighted images
+                const hasHighlightedImages = highlightedImages.some(
+                  highlight => highlight.clusterId === cluster.id
+                );
+                
+                return (
+                  <PhotoCluster 
+                    key={cluster.id}
+                    cluster={cluster}
+                    onClick={() => handleClusterClick(cluster.id)}
+                    isHighlighted={hasHighlightedImages}
+                    highlightedImageIndexes={
+                      hasHighlightedImages 
+                        ? highlightedImages
+                            .filter(h => h.clusterId === cluster.id)
+                            .map(h => h.imageIndex)
+                        : []
+                    }
+                    selectedChecklistItem={selectedChecklistItem}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
-      )}
+      </div>
       
       {/* Image modal for zoomed view */}
       {selectedImage && (
@@ -338,7 +424,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
         />
       )}
 
-      {/* PDF viewer modal */}
+      {/* PDF viewer modal - only shown when not using the pinned view */}
       {selectedPdf && (
         <div className="fixed inset-0 z-50 overflow-hidden bg-black bg-opacity-75 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-6xl h-[90vh] flex flex-col">
