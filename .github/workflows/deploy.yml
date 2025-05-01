@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   # Runs on pushes targeting the user-test branch
   push:
-    branches: [user-test]
+    branches: [user-test, user-test-2]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
