@@ -273,7 +273,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
       <div className={`flex ${pinnedDocument ? 'space-x-4' : ''}`}>
         {/* Pinned document section */}
         {pinnedDocument && (
-          <div className="w-1/2 flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div className="w-1/2 flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white sticky top-0 max-h-screen">
             <div className="p-3 border-b border-gray-200 flex justify-between items-center bg-gray-50">
               <h3 className="font-medium text-gray-800">{pinnedDocument.title}</h3>
               <button 
@@ -286,7 +286,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
                 </svg>
               </button>
             </div>
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 overflow-hidden">
               <iframe
                 src={`${pinnedDocument.url}#view=FitH`}
                 title={pinnedDocument.title}
@@ -298,7 +298,7 @@ function PhotoAlbum({ selectedChecklistItem, checklistMapping, onChecklistItemCl
         )}
 
         {/* Main content - adjust width based on whether a document is pinned */}
-        <div className={`flex flex-col ${pinnedDocument ? 'w-1/2' : 'w-full'}`}>
+        <div className={`flex flex-col ${pinnedDocument ? 'w-1/2' : 'w-full'} overflow-y-auto max-h-screen`}>
           {/* Quick Actions Section - Moved above the Documents & Images header */}
           <div className="mb-4 p-5 border border-gray-200 rounded-lg bg-white">
             <h3 className="font-medium text-gray-700 mb-4">Quick Actions</h3>
